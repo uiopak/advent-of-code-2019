@@ -226,7 +226,6 @@ namespace day_03
                         }
                     }
                 }
-
                 //var intersect = oneList.Where(x3=> twoList.Any(y3 => y3.Item1==x3.Item1&&y3.Item2==x3.Item2)).ToList();
                 //var length_list = intersect.Select(el =>
                 //    Math.Abs(el.Item1) + Math.Abs(el.Item2));
