@@ -10,7 +10,7 @@ namespace day_03
     {
         static void Main(string[] args)
         {
-            bool part_one = true;
+            bool part_one = false;
             if (part_one)
             {
                 var input = File.ReadAllLines("input");
@@ -212,25 +212,28 @@ namespace day_03
                     }
                 }
 
-                //oneList.Intersect(twoList).Select(el =>
-                //    new Tuple<int, int, int>(Math.Abs(el.Item1) + Math.Abs(el.Item2), el.Item1, el.Item2));
-                List<int> distances = new List<int>();
-                foreach (var tuple in oneList)
-                {
-                    foreach (var tuple1 in twoList)
-                    {
-                        if (tuple.Item1 == tuple1.Item1 && tuple.Item2 == tuple1.Item2)
-                        {
-                            distances.Add(tuple1.Item3 + tuple.Item3);
-                            //break;
-                        }
-                    }
-                }
+                var min1 = oneList.Join(twoList, el => new Tuple<int, int>(el.Item1, el.Item2),
+                    el => new Tuple<int, int>(el.Item1, el.Item2),
+                    (first, second) => first.Item3 + second.Item3);
+                Console.WriteLine($"min {min1.Min()}");
+
+                //List<int> distances = new List<int>();
+                //foreach (var tuple in oneList)
+                //{
+                //    foreach (var tuple1 in twoList)
+                //    {
+                //        if (tuple.Item1 == tuple1.Item1 && tuple.Item2 == tuple1.Item2)
+                //        {
+                //            distances.Add(tuple1.Item3 + tuple.Item3);
+                //            //break;
+                //        }
+                //    }
+                //}
                 //var intersect = oneList.Where(x3=> twoList.Any(y3 => y3.Item1==x3.Item1&&y3.Item2==x3.Item2)).ToList();
                 //var length_list = intersect.Select(el =>
                 //    Math.Abs(el.Item1) + Math.Abs(el.Item2));
                 //Console.WriteLine($"min {length_list.Min()}");
-                Console.WriteLine($"min {distances.Min()}");
+                //Console.WriteLine($"min {distances.Min()}");
             }
         }
     }
