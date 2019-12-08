@@ -67,7 +67,7 @@ namespace day_07
 
                 var finalList = allOuts.Where(r => r.Item1 == (allOuts.Max(m => m.Item1))).ToList();
                 Console.WriteLine(finalList.First().Item1);
-                int a = 0;
+                //int a = 0;
             }
             else
             {
@@ -121,7 +121,7 @@ namespace day_07
 
                 var finalList = allOuts.Where(r => r.Item1 == (allOuts.Max(m => m.Item1))).ToList();
                 Console.WriteLine(finalList.First().Item1);
-                int a = 0;
+                //int a = 0;
             }
         }
 
